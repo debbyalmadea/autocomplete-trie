@@ -47,4 +47,4 @@ change the words attributes to newData
 ```
 
 ## Credit
-University API [Hipo][https://github.com/Hipo/university-domains-list]
+University API [Hipo](https://github.com/Hipo/university-domains-list)
