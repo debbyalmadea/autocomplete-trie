@@ -1,31 +1,17 @@
 import { useEffect, useState } from 'react';
 import Autocomplete from './components/Autocomplete';
+import university from './data/data.json';
 
 function App() {
   const [selected, setSelected] = useState<string>("");
   const [data, setData] = useState<Array<string>>([]);
 
   useEffect(() => {
-    fetch("http://universities.hipolabs.com/search?country=indonesia")
-    .then((res) => res.json())
-    .then((fetchData) => {
       let name: string[] = [];
-      let len: number[] = [];
-      let sum: number = 0;
-      fetchData.map((value: any) => {
+      university.map((value: any) => {
         name.push(value.name);
-        len.push(value.name.length)
       })
       setData(name);
-
-      len.forEach((value, index) => {
-        sum += value;
-        if (index === 4 || index === 9 || index === 19 || index === 39 || index === 79 || index === 159) {
-          console.log("AVG ", index + 1, ": ", sum / (index + 1));
-        }
-      })
-    })
-    .catch((err) => console.log(err))
   }, [])
 
   useEffect(() => {
